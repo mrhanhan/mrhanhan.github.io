@@ -19,21 +19,21 @@ timezone:
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Chirpy                          # the main title
+title: Mrhan Blog                          # the main title
 
-tagline: A text-focused Jekyll theme   # it will display as the sub-title
+tagline: 系统恒久远, 代码永流传   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  A minimal, responsive, and powerful Jekyll theme for presenting professional writing.
+  一个普通的程序员 个普通的程序员 普通的程序员 通的程序员 的程序员 程序员 序员 员...
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: ''
 
 github:
-  username: github_username             # change to your github username
+  username: mrhanhan             # change to your github username
 
 twitter:
-  username: twitter_username            # change to your twitter username
+  username: mrhanhan            # change to your twitter username
 
 social:
   # Change to your full name.
