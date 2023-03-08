@@ -1,9 +1,8 @@
 ---
-# the default layout is 'page'
+layout: about
 icon: fas fa-info-circle
-order: 5
+order: 6
+styles:
+  - /assets/styles/about.css
 ---
-
-Hello World
-
 {: .prompt-tip }
