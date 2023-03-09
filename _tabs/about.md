@@ -1,7 +1,7 @@
 ---
 layout: about
 icon: fas fa-info-circle
-order: 6
+order: 7
 styles:
   - /assets/styles/about.css
 ---
