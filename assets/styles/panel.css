@@ -8,38 +8,35 @@
   width: 300px;
   margin: 16px;
   padding: 8px;
+  min-height: 200px;
   position: relative;
 }
 
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
 
-@keyframes background{
+@keyframes gradient {
+
   0% {
-    --r: 0deg;
+    --rotate: 0deg;
   }
-
   100% {
-    --r: 360deg;
+    --rotate: 360deg;
   }
 }
 
-
 .panel-layout .panel .panel-wrapper {
-  background: linear-gradient(var(--r, 0deg), #ff1d74, #e3820c 43%, #c28846);
   position: absolute;
+  background-image: linear-gradient( var(--rotate, 0deg), #ff0f7b 10%, #f89b29 100%);
   left: 0;
   top: 0;
   bottom: 0;
-  right: 0;
   border-radius: 8px;
+  right: 0;
   z-index: 1;
-}
-
-.panel-layout .panel:hover {
-  animation-name: background;
-  animation-delay:unset;
-  animation-duration: 5s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease;
 }
 .panel-layout .panel .panel-wrapper::before {
   content: "";
@@ -53,6 +50,10 @@
   z-index: 1;
 }
 
+.panel-layout .panel:hover .panel-wrapper {
+  animation: gradient 3s linear infinite;
+  box-shadow: 0px 0px 8px rgba(150, 150, 150, .7) ;
+}
 .panel-layout .panel .image {
   width: 100%;
   position: relative;
