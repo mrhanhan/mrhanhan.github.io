@@ -1,0 +1,23 @@
+---
+layout: page
+---
+
+{% include assets-origin.html %}
+<div class="panel-layout">
+
+    {% for panel in site.panels %}
+    <div class="panel">
+     <div class="panel-wrapper">
+     </div>
+      <div class="image" style="background-image: url('{{panel.img}}')">
+      </div>
+      <div class="name">
+        <a href="{{panel.link}}">{{panel.name}}</a>
+      </div>
+      <div class="name">
+        {{panel.description}}
+      </div>
+    </div>
+    {% endfor %}
+
+</div>

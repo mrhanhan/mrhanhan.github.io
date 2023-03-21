@@ -1,0 +1,54 @@
+
+.panel-layout {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.panel-layout .panel {
+  width: 300px;
+  margin: 16px;
+  padding: 8px;
+  position: relative;
+}
+
+
+.panel-layout .panel .panel-wrapper {
+  background: linear-gradient(0deg, #ff1d74, #e3820c 43%, #c28846);
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 8px;
+  z-index: 1;
+}
+
+.panel-layout .panel .panel-wrapper::before {
+  content: "";
+  background: #222;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  bottom: 2px;
+  right: 2px;
+  border-radius: 8px;
+  z-index: 1;
+}
+
+.panel-layout .panel .image {
+  width: 100%;
+  position: relative;
+  height: 120px;
+  border-radius: 8px;
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
+  z-index: 2;
+}
+
+.panel-layout .panel .name {
+  position: relative;
+  z-index: 2;
+}
