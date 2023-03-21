@@ -12,8 +12,19 @@
 }
 
 
+@keyframes background{
+  0% {
+    --r: 0deg;
+  }
+
+  100% {
+    --r: 360deg;
+  }
+}
+
+
 .panel-layout .panel .panel-wrapper {
-  background: linear-gradient(0deg, #ff1d74, #e3820c 43%, #c28846);
+  background: linear-gradient(var(--r, 0deg), #ff1d74, #e3820c 43%, #c28846);
   position: absolute;
   left: 0;
   top: 0;
@@ -23,6 +34,13 @@
   z-index: 1;
 }
 
+.panel-layout .panel:hover {
+  animation-name: background;
+  animation-delay:unset;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+}
 .panel-layout .panel .panel-wrapper::before {
   content: "";
   background: #222;
