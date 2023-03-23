@@ -53,4 +53,4 @@ tags: [CI/CD, 私有仓库, 更新中, Gitlab]
 ![Gitlab Runners设置](../../../../assets/posts/构建工具/AutoDevops/Gitlab/202303231100/gitlab_register_shell_1.png)
 
 
-详细注册流程：https://docs.gitlab.cn/runner/register
+详细注册流程：[https://docs.gitlab.cn/runner/register](https://docs.gitlab.cn/runner/register)
