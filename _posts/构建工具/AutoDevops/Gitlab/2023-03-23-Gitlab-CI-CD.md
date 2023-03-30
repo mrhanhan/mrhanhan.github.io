@@ -1,56 +1,92 @@
 ---
-title: Gitlab Runner 安装教程
+title: Gitlab CI/CD
 category: [构建工具, AutoDevops, Gitlab]
 tags: [CI/CD, 私有仓库, 更新中, Gitlab]
 ---
 
-# 1. Gitlab Runner
+## 1. Gitlab CI/CD
 
-在极狐GitLab 中，runners 是运行 CI/CD 作业的代理。
+> 关于`CI/CD`的理论概念可以查看前面这篇文章: [CI/CD](/posts/CI-CD)，详细的 gitlab ci/cd 配置可查看[gitlab 官网文档][gitlab_dock_link]
 
-您可能已经有可用于您的项目的 runner，包括共享 runner，它们可用于您的实例中的所有项目。
-要查看可用的 runner：
+如果需要使用到`gitlab ci/cd` 功能，则需要在代码仓库中创建一个 `.gitlab-ci.yml` 配置文件，用来描述在`何时` 采用 `什么方式` 进行 `持续集成和构建`
 
-转到 `设置` > `CI/CD` 并展开 `Runners`。
+`.gitlab-ci.yml` 简单的例子:
+```yaml
+# 构建阶段
+stages:
+  - build
+  - test
+  - deploy
 
-只要您至少有一个有效的 runner，旁边有一个绿色圆圈，您就有一个 runner 可以处理您的作业。
+build-job:
+  stage: build
+  script:
+    - echo "Hello, $GITLAB_USER_LOGIN!"
 
-如果 UI 中的 `Runners` 页面上没有列出任何 runner，您或管理员必须安装 `GitLab Runner` 和注册至少一名 runner。
+test-job1:
+  stage: test
+  script:
+    - echo "This job tests something"
 
-如果您正在测试 `CI/CD`，您可以在本地机器上安装 `GitLab Runner` 并注册 runner。 当您的 `CI/CD` 作业运行时，它们会在您的本地机器上运行。
+test-job2:
+  stage: test
+  script:
+    - echo "This job tests something, but takes more time than test-job1."
+    - sleep 20
 
-![Gitlab CI/CD设置](../../../../assets/posts/构建工具/AutoDevops/Gitlab/202303231100/gitlab_setting_cicd.png)
-![Gitlab Runners设置](../../../../assets/posts/构建工具/AutoDevops/Gitlab/202303231100/gitlab_setting_runners.png)
-
-可以看到，目前私有的 `Gitlab` 仓库中是没有任何 `Runners` 这就代表着我们的 `Gitlab` 中的 `CI/CD` 是无法执行的。
-这时候需要我们进行注册 `Runners` 来执行这些 `CI/CD`
-
-# 2. 安装/注册 Runners
-
-![Gitlab Runners设置](../../../../assets/posts/构建工具/AutoDevops/Gitlab/202303231100/gitlab_runners_reigister_code.png)
-
-![Gitlab Runners设置](../../../../assets/posts/构建工具/AutoDevops/Gitlab/202303231100/gitlab_runners_install.png)
-
-找一台机器，进行安装部署，如果 `Gitlab` 是在云服务器中，有固定的公网IP或者域名，`Runner` 可以不用和 `Gitlab` 在一个公网网段中，
-只需要 `Runner` 可以访问 `Gitlab` 即可。本教程中使用的 `Gitlab` 是部署在云服务中。`Runner` 着安装到 公司内内网机房服务器中。
-
-
-随便找一台内网服务器:
-![Gitlab Runners设置](../../../../assets/posts/构建工具/AutoDevops/Gitlab/202303231100/linux_runners_01_mkdir.png)
-
-下载 `Runner`
-
-![Gitlab Runners设置](../../../../assets/posts/构建工具/AutoDevops/Gitlab/202303231100/linux_runners_01_download.png)
-
-进行后续步骤
-
-![Gitlab Runners设置](../../../../assets/posts/构建工具/AutoDevops/Gitlab/202303231100/linux_runners_01_after.png)
-
-**开始注册**
-
-![Gitlab Runners设置](../../../../assets/posts/构建工具/AutoDevops/Gitlab/202303231100/gitlab_register_shell.png)
-
-![Gitlab Runners设置](../../../../assets/posts/构建工具/AutoDevops/Gitlab/202303231100/gitlab_register_shell_1.png)
+deploy-prod:
+  stage: deploy
+  script:
+    - echo "This job deploys something from the $CI_COMMIT_BRANCH branch."
+  environment: production
+```
 
 
-详细注册流程：[https://docs.gitlab.cn/runner/register](https://docs.gitlab.cn/runner/register)
+## x. 内置变量
+
+- `$CI_COMMIT_REF_NAME`：当前分支的名称。
+- `$CI_COMMIT_SHA`：提交的哈希值。
+- `$CI_PIPELINE_ID`：当前CI/CD流程的ID。
+- `$CI_PROJECT_DIR`：Git仓库的根目录。
+- `$CI_PROJECT_NAME`：Git仓库的名称。
+- `$CI_PROJECT_NAMESPACE`：Git仓库的命名空间。
+- `$CI_REGISTRY_IMAGE`：Docker镜像仓库的名称。
+- `$CI_BUILD_ID`：当前构建的ID。
+- `$CI_BUILD_REF`：当前构建的哈希值。
+- `$CI_JOB_ID`：当前Job的ID。
+- `$CI_JOB_NAME`：当前Job的名称。
+- `$CI_JOB_STAGE`：当前Job所属的Stage。
+- `$CI_RUNNER_DESCRIPTION`：当前Runner的描述信息。
+- `$CI_RUNNER_ID`：当前Runner的ID。
+- `$CI_RUNNER_TAGS`：当前Runner的标签。
+- `$CI_COMMIT_TAG`：如果当前CI/CD流程是由标签触发的，则为标签的名称。
+- `$CI_COMMIT_TITLE`：当前提交的标题。
+- `$CI_COMMIT_MESSAGE`：当前提交的消息。
+- `$CI_COMMIT_TIMESTAMP`：当前提交的时间戳。
+- `$CI_COMMIT_AUTHOR`：当前提交的作者。
+- `$CI_COMMIT_EMAIL`：当前提交的作者的电子邮件地址。
+- `$CI_REGISTRY_USER`：Docker镜像仓库的用户名。
+- `$CI_REGISTRY_PASSWORD`：Docker镜像仓库的密码。
+- `$CI_ENVIRONMENT_NAME`：当前环境的名称。
+- `$CI_ENVIRONMENT_SLUG`：当前环境的Slug。
+- `$CI_DEPLOY_USER`：当前部署的用户。
+- `$CI_DEPLOY_PASSWORD`：当前部署的密码。
+- `$CI_RUNNER_EXECUTABLE_ARCH`：当前Runner的架构类型（例如，amd64）。
+- `$CI_NODE_INDEX`：当前Job在集群中的索引值。
+- `$CI_NODE_TOTAL`：当前Job在集群中的总数。
+- `$CI_SERVER_VERSION`：GitLab服务器的版本号。
+- `$CI_SERVER_NAME`：GitLab服务器的名称。
+- `$CI_SERVER_REVISION`：GitLab服务器的哈希值。
+- `$CI_SERVER_HOST`：GitLab服务器的主机名。
+- `$CI_SERVER_PORT`：GitLab服务器的端口号。
+- `$CI_SERVER_PROTOCOL`：GitLab服务器的协议类型（http或https）。
+- `$CI_JOB_MANUAL`：如果当前Job是手动触发的，则为true，否则为false。
+- `$RUNNER_ID`：当前 Runner 的唯一标识符。
+- `$RUNNER_TAGS`：当前 Runner 的标签列表，可以用于选择和筛选任务。
+- `$RUNNER_VERSION`：当前 Runner 的版本号。
+- `$RUNNER_REVISION`：当前 Runner 的 Git 提交哈希值。
+- `$RUNNER_EXECUTABLE_NAME`：当前 Runner 的可执行文件名。
+- `$RUNNER_EXECUTABLE_VERSION`：当前 Runner 的可执行文件版本号。
+- `$RUNNER_PROJECT_TEMP_DIR`：用于访问当前 Runner 所在的临时项目目录，在执行任务时，GitLab Runner 会为每个项目创建一个临时目录，其中包含任务所需的所有文件和代码
+
+[gitlab_dock_link]:https://docs.gitlab.cn/jh/ci/quick_start/
