@@ -25,7 +25,7 @@ title: NodeJS 后端Canvas渲染环境安装
 
 ## Demo:
 
-```nodejs
+```javascript
   const { createCanvas, loadImage } = require('canvas')
   const canvas = createCanvas(200, 200)
   const ctx = canvas.getContext('2d')
@@ -53,4 +53,4 @@ title: NodeJS 后端Canvas渲染环境安装
 
 参考：
 
-- (node-canvas 官网)[(https://github.com/Automattic/node-canvas]
+- [node-canvas 官网](https://github.com/Automattic/node-canvas)
