@@ -106,6 +106,8 @@ sudo gdbserver :1023 ./programs/clickhouse server
 ![](../../../assets/posts/日常日志/Clickhouse/20240129/clion_remote_debug.png)
 
 2. 点击开始 `DEBUG`
+   ![](../../../assets/posts/日常日志/Clickhouse/20240129/clion_debug_success.png)
+
 
 然后根据你的需求进行打断点，调试就可以了
 
