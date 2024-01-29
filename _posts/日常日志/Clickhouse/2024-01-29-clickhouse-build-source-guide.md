@@ -9,10 +9,11 @@ tags: [ 日常日志, Clickhouse ]
 
 **开发环境**
 1. 开发工具:`Intellij Clion` 开发工具
-2. 操作系统:`Ubuntu 22 Windows` 子系统
+2. 操作系统:`Ubuntu 22` 系统
 3. 编译所需内存：建议是32G 内存
 4. 编译环境：`clang-16` `gcc` `nasm` `yasm`
 5. 构建关系：`CMake` `Ninja`
+6. 调试工具：`gdb-server`
 
 - `llvm clang` 下载地址: https://github.com/llvm/llvm-project/releases/tag/llvmorg-16.0.3
 
@@ -54,3 +55,58 @@ cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=clang-16 '-DCMAKE_CXX_COMPILER
 ninja -j 8
 ```
 ![](../../../assets/posts/日常日志/Clickhouse/20240129/ninja_begin.png)
+
+3. 编译过程中可能会出现这个错误:
+
+![](../../../assets/posts/日常日志/Clickhouse/20240129/clickhouse_linker_fail.png)
+
+这个错误是因为 在 `执行 linker`阶段内存不够导致的。可以通过开启 swap 或者 扩大内存来解决这个问题。
+
+> 具体如何扩大 swap 交换区可以自行百度
+ 
+```shell
+sudo fallocate -l 20Gb /helloswap
+sudo chmod 600 /helloswap
+sudo mkswap /helloswap
+sudo swapon /helloswap
+```
+
+4. 编译成功，启动！
+
+# 2. 基于gdb server 远程调试
+
+安装`gdb` `gdb server`
+
+```shell
+sudo apt-get install gdb gdbserver
+```
+
+生成Debug符号文件
+
+```shell
+objcopy --only-keep-debug ./programs/clickhouse ./programs/clickhouse.dbg
+```
+
+开启远程调试
+
+```shell
+# 启动程序
+sudo gdbserver :1023 ./programs/clickhouse server
+
+```
+
+
+
+**使用 Clion 进行远程调试 **
+
+环境准备： 打开源码
+
+1. 添加 `Remote Debug`
+
+![](../../../assets/posts/日常日志/Clickhouse/20240129/clion_remote_debug.png)
+
+2. 点击开始 `DEBUG`
+
+然后根据你的需求进行打断点，调试就可以了
+
+
