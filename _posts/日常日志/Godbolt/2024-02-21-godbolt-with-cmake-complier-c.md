@@ -50,6 +50,7 @@ add_executable(hello lib.c lib.h)
 
 3. 添加编译器
 
-![](../../../assets/posts/日常日志/Godbolt/2024022117/img_6.png)
+![](../../../assets/posts/日常日志/Godbolt/2024022117/img_7.png)
+![](../../../assets/posts/日常日志/Godbolt/2024022117/img_8.png)
 
 到此，就可以使用`CMake` 来编译多个C++文件了
