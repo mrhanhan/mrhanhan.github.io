@@ -4,7 +4,7 @@ title: Clickhouse 源码编译 Debug 指导手册
 category: [ 日常日志,Clickhouse ]
 tags: [ 日常日志, Clickhouse ]
 ---
-
+![](../../../assets/posts/日常日志/Clickhouse/20240129/img.png)
 > 本文主要介绍Clickhouse 源码编译的指南
 
 **开发环境**
