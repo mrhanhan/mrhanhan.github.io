@@ -16,14 +16,17 @@ git clone https://github.com/opencv/opencv-contrib.git
 ```shell
 mkdir build
 cd build
-cmake \
-    -D OPENCV_DNN_CUDA=ON \
-    -D WITH_CUDA=ON \
-    -D WITH_CUDNN=ON \
-    -D OPENCV_DNN_CUDA=ON \
-    -D OPENCV_ENABLE_NONFREE=ON \
-    -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
-    ..
+cmake -G Ninja \
+  -D OPENCV_EXTRA_MODULES_PATH=..\..\opencv_contrib\modules \
+  -D WITH_CUDA=ON \
+  -D WITH_CUDNN=ON \
+  -D CUDA_FAST_MATH=ON \
+  -D WITH_OPENEXR=ON \
+  -D OPENCV_ENABLE_NONFREE=NO \
+  -D BUILD_JAVA=OFF \
+  -D BUILD_opencv_python3=OFF \
+  -D WITH_NVCUVENC=OFF \
+  -D WITH_NVCUVID=OFF   ..
  
  make
 ```
