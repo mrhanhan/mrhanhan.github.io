@@ -30,3 +30,15 @@ cmake -G Ninja \
  
  make
 ```
+
+如果编译的过程中报错: `error C3861: “cudnnSetRNNDescriptor_v6”: 找不到标识符`
+
+![](../../../assets/posts/工作日志/OpenCV/202403110944/img.png)
+
+这个是因为使用的 `cuDNN` 版本过高导致.
+
+[NVIDIA 官方文档](https://docs.nvidia.com/deeplearning/cudnn/api/overview.html)
+
+![](../../../assets/posts/工作日志/OpenCV/202403110944/img_1.png)
+
+可以换用 `cuDNN v8`版本即可
