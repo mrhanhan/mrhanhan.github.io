@@ -22,7 +22,7 @@ cmake -G Ninja \
   -D WITH_CUDNN=ON \
   -D CUDA_FAST_MATH=ON \
   -D WITH_OPENEXR=ON \
-  -D OPENCV_ENABLE_NONFREE=NO \
+  -D OPENCV_ENABLE_NONFREE=ON \
   -D BUILD_JAVA=OFF \
   -D BUILD_opencv_python3=OFF \
   -D WITH_NVCUVENC=OFF \
@@ -42,3 +42,12 @@ cmake -G Ninja \
 ![](../../../assets/posts/工作日志/OpenCV/202403110944/img_1.png)
 
 可以换用 `cuDNN v8`版本即可
+
+
+错误: `LLVMSymbolizer: error reading file: 'kernel32.pdb': no such file or directory`
+
+![](../../../assets/posts/工作日志/OpenCV/202403110944/img_2.png)
+
+安装 `Windows SDK`
+
+[https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/](https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/)
