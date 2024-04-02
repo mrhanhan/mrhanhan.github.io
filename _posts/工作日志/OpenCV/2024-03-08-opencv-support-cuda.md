@@ -44,10 +44,6 @@ cmake -G Ninja \
 可以换用 `cuDNN v8`版本即可
 
 
-错误: `LLVMSymbolizer: error reading file: 'kernel32.pdb': no such file or directory`
 
-![](../../../assets/posts/工作日志/OpenCV/202403110944/img_2.png)
+建议: 建议生成后同过 `Visual Studio` 进行编译 不要问为什么，因为可以成功编译，使用 `Clion` 编译 CUDA 代码时，老是出各种问题(`Visual Studio` + `Ninja`)
 
-安装 `Windows SDK`
-
-[https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/](https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/)
