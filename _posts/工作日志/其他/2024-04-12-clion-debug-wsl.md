@@ -6,7 +6,7 @@ title: Clion 基于 gdbserver 一键开启debug
 
 > windows 电脑上debug linux 程序真的是很操蛋。
 
-本位给你提供一个基于 Clion 非常方便调试办法
+本文给你提供一个基于 Clion 非常方便调试办法
 
 ## 环境:
 
