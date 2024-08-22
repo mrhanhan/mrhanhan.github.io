@@ -48,9 +48,18 @@ ubuntu:
 ```
 
 ## 子系统环境变量冲突
-使用Win10 linux子系统的过程中发现一个问题：如果主/子系统同时设置环境变量，那么子系统会优先选择主系统的环境变量。
 
-1. 打开 `注册表`  
-  win + r 打开`运行`，输入`regedit`
-2. 找到 `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Lxss\{GUID}\Flags`
-    把值改为5。把所有linux子系统窗口关掉再打开，完成。
+方法:
+
+1. 进入子系统中 编辑 `/etc/wsl.conf` 添加如下配置
+
+```toml
+[interop]
+appendWindowsPath=false # 设置此键将确定 WSL 是否将 Windows 路径元素添加到 $PATH 环境变量
+```
+2. 重启服务
+
+```shell
+  wsl --shutdown
+  wsl
+```
