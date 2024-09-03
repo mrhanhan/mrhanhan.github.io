@@ -63,3 +63,18 @@ appendWindowsPath=false # 设置此键将确定 WSL 是否将 Windows 路径元�
   wsl --shutdown
   wsl
 ```
+## 错误解决
+
+### docker 中启动chrome `Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory`
+
+- 主机环境: Centos7
+- Docker容器环境: Ubuntu
+
+解决方案:
+```shell
+  apt install dbus -y
+  # 如果没有这个目录则创建
+  mkdir /run/dbus
+  # 手动启动
+  sudo dbus-deamon --system
+```
