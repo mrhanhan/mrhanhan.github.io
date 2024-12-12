@@ -49,7 +49,7 @@ tags: [AI, SpringAI]
     使用`model.call()` 是可以正常调用的，但是使用`stream()` 则报错400
     ![](../../../assets/posts/AI/vllm/20241212/img.png)
     经过抓包发现，使用 `stream` 函数时发送的http请求如下:
-    ```http request
+    ```shell
     POST /v1/chat/completions HTTP/1.1
     Connection: Upgrade, HTTP2-Settings
     Host: 192.168.79.62:8000
