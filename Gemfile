@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 source "https://rubygems.org"
+ruby "~> 3.2"
 
 gem "jekyll-theme-chirpy", "~> 7.5"
 
@@ -15,4 +16,3 @@ gem "wdm", "~> 0.2.0", :platforms => [:windows]
 
 gem "jekyll-toc", "~> 0.19.0"
 
-ruby "~> 3.2"
