@@ -23,7 +23,7 @@ tags: [ C++, Clion, NMAP ]
 
 ## 项目开始:
 
-![](../../assets/posts/c++/20240530/img.png)
+![](/assets/posts/c++/20240530/img.png)
 
 好的，打开项目之后，会识别是Makefile项目，上来就是当头一棒！
 
