@@ -12,20 +12,20 @@ tags: [数据库, MySQL]
 ## 1. 下载MYSQL 压缩包
 
 访问:[https://downloads.mysql.com/archives/community/](https://downloads.mysql.com/archives/community/) MySql 下载官网
-![](../../../assets/posts/工作日志/Mysql/20231220/mysql1.png)
+![](/assets/posts/工作日志/Mysql/20231220/mysql1.png)
 
 注意: 操作系统(`Operating System`)选项中 选择: `Linux - Generic`
 
 根据`glibc 版本`和`指令集`选择对应的压缩包，本文使用：`Linux - Generic (glibc 2.17) (x86, 64-bit), TAR`
 
-![](../../../assets/posts/工作日志/Mysql/20231220/mysql2.png)
+![](/assets/posts/工作日志/Mysql/20231220/mysql2.png)
 
 解压压缩包后：可以看到3个文件:
 - `mysql-8.1.0-linux-glibc2.17-x86_64.tar.xz`: MySql
 - `mysql-test-8.1.0-linux-glibc2.17-x86_64.tar.xz`: MySql 测试套件
 - `mysql-router-8.1.0-linux-glibc2.17-x86_64.tar.xz`: MySQL Router
 
-![](../../../assets/posts/工作日志/Mysql/20231220/mysql3.png)
+![](/assets/posts/工作日志/Mysql/20231220/mysql3.png)
 
 这里我们只需要基本的 `mysql` 即可
 
@@ -35,7 +35,7 @@ tags: [数据库, MySQL]
   tar -xJf mysql-8.1.0-linux-glibc2.17-x86_64.tar
 ```
 
-![](../../../assets/posts/工作日志/Mysql/20231220/mysql4.png)
+![](/assets/posts/工作日志/Mysql/20231220/mysql4.png)
 
 ## 3. MySQL 初始化
 

@@ -47,7 +47,7 @@ tags: [AI, SpringAI]
 1. 使用 `model.stream()` 使用Stream 类型来获取响应，则会报错 400
   
     使用`model.call()` 是可以正常调用的，但是使用`stream()` 则报错400
-    ![](../../../assets/posts/AI/vllm/20241212/img.png)
+    ![](/assets/posts/AI/vllm/20241212/img.png)
     经过抓包发现，使用 `stream` 函数时发送的http请求如下:
     ```shell
     POST /v1/chat/completions HTTP/1.1

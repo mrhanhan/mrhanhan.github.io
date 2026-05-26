@@ -4,7 +4,7 @@ title: Clickhouse 源码编译 Debug 指导手册
 category: [ 日常日志,Clickhouse ]
 tags: [ 日常日志, Clickhouse ]
 ---
-![](../../../assets/posts/日常日志/Clickhouse/20240129/img.png)
+![](/assets/posts/日常日志/Clickhouse/20240129/img.png)
 > 本文主要介绍Clickhouse 源码编译的指南
 
 **开发环境**
@@ -29,7 +29,7 @@ tags: [ 日常日志, Clickhouse ]
 ```shell
 git clone https://github.com/ClickHouse/ClickHouse.git
 ```
-![](../../../assets/posts/日常日志/Clickhouse/20240129/clickhouse_git_clone_ok.png)
+![](/assets/posts/日常日志/Clickhouse/20240129/clickhouse_git_clone_ok.png)
 
 ```shell
 cd Clickhouse
@@ -37,7 +37,7 @@ cd Clickhouse
 git submodule update --init -f
 ls -l
 ```
-![](../../../assets/posts/日常日志/Clickhouse/20240129/clickhouse_ls_l.png)
+![](/assets/posts/日常日志/Clickhouse/20240129/clickhouse_ls_l.png)
 
 ```shell
 # 新建build 目录
@@ -46,7 +46,7 @@ cd build
 # cmake 生成构建脚本 需要使用 llvm-clang 进行编译 禁止 ccache
 cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=clang-16 '-DCMAKE_CXX_COMPILER=clang++-16' -G Ninja -DLINKER_NAME=ld -DCOMPILER_CACHE=disabled ..
 ```
-![](../../../assets/posts/日常日志/Clickhouse/20240129/clickhouse_cmake_success.png)
+![](/assets/posts/日常日志/Clickhouse/20240129/clickhouse_cmake_success.png)
 
 2. 环境检测成功后，可以进行编译
 
@@ -54,11 +54,11 @@ cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=clang-16 '-DCMAKE_CXX_COMPILER
 # ninja 进行编译 -j 8 8个 job 同时进行
 ninja -j 8
 ```
-![](../../../assets/posts/日常日志/Clickhouse/20240129/ninja_begin.png)
+![](/assets/posts/日常日志/Clickhouse/20240129/ninja_begin.png)
 
 3. 编译过程中可能会出现这个错误:
 
-![](../../../assets/posts/日常日志/Clickhouse/20240129/clickhouse_linker_fail.png)
+![](/assets/posts/日常日志/Clickhouse/20240129/clickhouse_linker_fail.png)
 
 这个错误是因为 在 `执行 linker`阶段内存不够导致的。可以通过开启 swap 或者 扩大内存来解决这个问题。
 
@@ -103,10 +103,10 @@ sudo gdbserver :1023 ./programs/clickhouse server
 
 1. 添加 `Remote Debug`
 
-![](../../../assets/posts/日常日志/Clickhouse/20240129/clion_remote_debug.png)
+![](/assets/posts/日常日志/Clickhouse/20240129/clion_remote_debug.png)
 
 2. 点击开始 `DEBUG`
-   ![](../../../assets/posts/日常日志/Clickhouse/20240129/clion_debug_success.png)
+   ![](/assets/posts/日常日志/Clickhouse/20240129/clion_debug_success.png)
 
 
 然后根据你的需求进行打断点，调试就可以了

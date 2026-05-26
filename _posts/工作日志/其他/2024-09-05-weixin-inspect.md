@@ -26,7 +26,7 @@ title: 基于Chrome 内核使用 Inspect 进行抓包微信
 
 打开后稍等片刻
 
-![](../../../assets/posts/其他/20240905/img.png)
+![](/assets/posts/其他/20240905/img.png)
 
 > 目前使用Edge 浏览器非常流程。Chrome 老是404
 
@@ -35,16 +35,16 @@ title: 基于Chrome 内核使用 Inspect 进行抓包微信
 
 比如: 微信搜一搜
 
-![](../../../assets/posts/其他/20240905/img_1.png)
+![](/assets/posts/其他/20240905/img_1.png)
 
 ---
 我电脑的Chrome 会404
-![](../../../assets/posts/其他/20240905/img_2.png)
+![](/assets/posts/其他/20240905/img_2.png)
 ---
 
 成功后：
 
-![](../../../assets/posts/其他/20240905/img_3.png)
+![](/assets/posts/其他/20240905/img_3.png)
 
 到这一步，你就可以开始你的奇妙之旅
 

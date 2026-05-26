@@ -23,10 +23,10 @@ title: Nexus 私有依赖仓库迁移
 > 依赖: jdk 环境
 
 前往下载页面下载对应压缩包: [Nexus](https://help.sonatype.com/en/download-archives---repository-manager-3.html)
-![](../../../assets/posts/工作日志/其他/20240821/img.png)
+![](/assets/posts/工作日志/其他/20240821/img.png)
 
 解压后：  
-![](../../../assets/posts/工作日志/其他/20240821/img_1.png)
+![](/assets/posts/工作日志/其他/20240821/img_1.png)
 
 打包 `sonatype-work`:  
 ```shell

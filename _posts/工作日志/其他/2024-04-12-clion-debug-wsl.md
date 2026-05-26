@@ -28,12 +28,12 @@ title: Clion 基于 gdbserver 一键开启debug
 
 到此为止，非常正常，毫无问题。更目录下会生成 `nmap`的程序。
 
-![](../../../assets/posts/工作日志/其他/20240412/img.png)
+![](/assets/posts/工作日志/其他/20240412/img.png)
 
 ### 主角: `nmap`
 
 打开`Clion` 并且打开 子系统目录
-![](../../../assets/posts/工作日志/其他/20240412/img_1.png)
+![](/assets/posts/工作日志/其他/20240412/img_1.png)
 
 开始装逼:
 
@@ -51,8 +51,8 @@ sleep 1s
 echo "Started"
 ```
 
-![](../../../assets/posts/工作日志/其他/20240412/img_2.png)
-![](../../../assets/posts/工作日志/其他/20240412/img_3.png)
+![](/assets/posts/工作日志/其他/20240412/img_2.png)
+![](/assets/posts/工作日志/其他/20240412/img_3.png)
 
 - 添加一个 `before action` 然后在这个里面进行编译和启动
 ```shell
@@ -60,17 +60,17 @@ wsl --cd "运行目录" --user "运行用户" --exec "执行命令" "参数"
 wsl --cd /home/rick/nmap/nmap-7.94 -user root  --exec ./debug.sh
 ```
 > eq: 使用 `run.sh` 非常方便修改参数
-![](../../../assets/posts/工作日志/其他/20240412/img_4.png)
+![](/assets/posts/工作日志/其他/20240412/img_4.png)
 
 注意：debug 还需要`符号文件` 可以直接选则编译生成的程序即可。
 
-![](../../../assets/posts/工作日志/其他/20240412/img_5.png)
+![](/assets/posts/工作日志/其他/20240412/img_5.png)
 
 > eg: 如果是远程编译，并非子系统，可以在 debug.sh 中下载编译之后的文件到本地
 
 完美运行：
 
-![](../../../assets/posts/工作日志/其他/20240412/img_6.png)
+![](/assets/posts/工作日志/其他/20240412/img_6.png)
 
 
 ## 总结:

@@ -14,10 +14,10 @@ tags: [Nexus, 私有仓库, 更新中, Maven]
 - `message-module`: 负责消息通知
 
 **user-module**
-![用户模块](../../../assets/posts/构建工具/Nexus/202303221736/user-module.png)
+![用户模块](/assets/posts/构建工具/Nexus/202303221736/user-module.png)
 
 **message-module**
-![消息模块](../../../assets/posts/构建工具/Nexus/202303221736/message-module.png)
+![消息模块](/assets/posts/构建工具/Nexus/202303221736/message-module.png)
 
 **order-module**
-![订单模块](../../../assets/posts/构建工具/Nexus/202303221736/order-module.png)
+![订单模块](/assets/posts/构建工具/Nexus/202303221736/order-module.png)

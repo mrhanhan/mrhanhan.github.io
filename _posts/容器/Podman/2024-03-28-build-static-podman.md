@@ -39,14 +39,14 @@ tags: [Podman, 容器, 静态编译]
 ```
 编译成功后可以看到生成了一个 `bin` 目录，并且包含了如下程序
 
-![](../../../assets/posts/容器/Podman/20240328/img.png)
+![](/assets/posts/容器/Podman/20240328/img.png)
 
 ### 2. 启动?
 
 ```bash
   ./bin/podman system service
 ```
-![](../../../assets/posts/容器/Podman/20240328/img_1.png)
+![](/assets/posts/容器/Podman/20240328/img_1.png)
 
 呕吼，没启动起来，报错了！
 
@@ -57,7 +57,7 @@ tags: [Podman, 容器, 静态编译]
   # LDFLAGS 链接参数 -static 使用静态库进行链接 
   LDFLAGS="-static" make
 ```
-![](../../../assets/posts/容器/Podman/20240328/img_2.png)
+![](/assets/posts/容器/Podman/20240328/img_2.png)
 
 ### 4. 再次启动!
 
@@ -65,7 +65,7 @@ tags: [Podman, 容器, 静态编译]
   cp ../conmon/bin/conmon .
   ./podman system service --conmon=./conmon
 ```
-![](../../../assets/posts/容器/Podman/20240328/img_3.png)
+![](/assets/posts/容器/Podman/20240328/img_3.png)
 哦吼，再次报错, 这次缺少 newuidmap, 那么下载这些工具
 
 ### 5. 编译 `shadow`
@@ -79,18 +79,18 @@ tags: [Podman, 容器, 静态编译]
      sudo make install
    ```
    编译报错:
-   ![](../../../assets/posts/容器/Podman/20240328/img_5.png)
-   ![](../../../assets/posts/容器/Podman/20240328/img_6.png)
-   ![](../../../assets/posts/容器/Podman/20240328/img_7.png)
+   ![](/assets/posts/容器/Podman/20240328/img_5.png)
+   ![](/assets/posts/容器/Podman/20240328/img_6.png)
+   ![](/assets/posts/容器/Podman/20240328/img_7.png)
 
     解决方式:
-   ![](../../../assets/posts/容器/Podman/20240328/img_8.png)
+   ![](/assets/posts/容器/Podman/20240328/img_8.png)
     如果是新版 bison 不支持 `%name_prefix`, 替换为: `%define api.prefix {}`
-   ![](../../../assets/posts/容器/Podman/20240328/img_9.png)
+   ![](/assets/posts/容器/Podman/20240328/img_9.png)
     
     修改Makefile, `-o`参数貌似无法输出目标文件，默认生产的是 `lex.semanage_.c` 手动重命名为目标文件
 
-   ![](../../../assets/posts/容器/Podman/20240328/img_11.png) 
+   ![](/assets/posts/容器/Podman/20240328/img_11.png) 
     
     由于找不到这个函数定义，代码中也找不到，所以就给实现了一个默认的定义 `conf-parse.y`
     
@@ -113,25 +113,25 @@ tags: [Podman, 容器, 静态编译]
 ```
 > 注意: 执行 autogen 缺少依赖，根据提示安装即可，2. 提供make 编译时，提示缺少 `tl.po` `xx.po` 文件，那么只需要在
 > po/LINGUAS 中删除即可
-![](../../../assets/posts/容器/Podman/20240328/img_4.png)
+![](/assets/posts/容器/Podman/20240328/img_4.png)
 
 > 编译静态程序需要 在 `autogen.sh` 中加上 CFLAGS="--static"
 
 > 如果出现这样的错误: `/usr/bin/ld: (.text+0x6b1): undefined reference to `SHA512Update'` 修改一下 链接顺序
 
-![](../../../assets/posts/容器/Podman/20240328/img_12.png)
+![](/assets/posts/容器/Podman/20240328/img_12.png)
 
 文件: `build/src/Makefile`
 正则:` (\$\([a-z|_]*_LDADD\)?) (\$\(LIBS\))` => `$2 $1`
 
-![](../../../assets/posts/容器/Podman/20240328/img_13.png)
+![](/assets/posts/容器/Podman/20240328/img_13.png)
 
 这样的错误的话直接修改对于`src/Makefile`的对于目标配置，例如:
-![](../../../assets/posts/容器/Podman/20240328/img_14.png)
+![](/assets/posts/容器/Podman/20240328/img_14.png)
 
-![](../../../assets/posts/容器/Podman/20240328/img_15.png)
+![](/assets/posts/容器/Podman/20240328/img_15.png)
 或者修改文件 `build/libsubid/libsubid.la`
-![](../../../assets/posts/容器/Podman/20240328/img_16.png)
+![](/assets/posts/容器/Podman/20240328/img_16.png)
 
 或者重新编译 `https://github.com/guillemj/libbsd.git`
 
@@ -147,7 +147,7 @@ tags: [Podman, 容器, 静态编译]
   sudo apt install musl-tools -y
   make
 ```
-![](../../../assets/posts/容器/Podman/20240328/img_17.png)
+![](/assets/posts/容器/Podman/20240328/img_17.png)
 
 
 #### 6.2 下载: `crun`

@@ -31,7 +31,7 @@ tags: [ 构建工具, Maven, 版本管理 ]
 
 > 多模块基本场景 (`eg: 部分pom.xml 内容省略`) 依赖包含：SNAPSHOT依赖和 RELEASE（无后缀）依赖
 
-![图片](../../../assets/posts/构建工具/Maven/202306160001/versions_park01.png)
+![图片](/assets/posts/构建工具/Maven/202306160001/versions_park01.png)
 
 ### 父模块
 

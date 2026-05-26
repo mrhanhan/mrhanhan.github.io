@@ -22,7 +22,7 @@ ChatGLM-6B 使用了和 ChatGPT 相似的技术，针对中文问答和对话进
   ## Clone 源码 
   git clone https://github.com/THUDM/ChatGLM-6B.git 
 ```
-![img.png](../../../assets/posts/AI/CHATGLM-6B/source.png)
+![img.png](/assets/posts/AI/CHATGLM-6B/source.png)
 
 - 安装依赖
 
@@ -36,7 +36,7 @@ ChatGLM-6B 使用了和 ChatGPT 相似的技术，针对中文问答和对话进
 
 在启动`web_demo.py` 时，会去 [huggingface.co](https://huggingface.co/THUDM/chatglm-6b) 下载相关的模型数据到本地。
 那么，如果网络环境不好，最好也是配置代理的方式, 同时最好也忽略SSL证书校验：
-![img.png](../../../assets/posts/AI/CHATGLM-6B/web_demo.png)
+![img.png](/assets/posts/AI/CHATGLM-6B/web_demo.png)
 ```python
   # web_demo.py
   from transformers import AutoModel, AutoTokenizer
@@ -67,16 +67,16 @@ model = model.eval()
 
 下载模型中
 
-![img.png](../../../assets/posts/AI/CHATGLM-6B/download.png)
+![img.png](/assets/posts/AI/CHATGLM-6B/download.png)
 
 
 如果下载比较慢的话，可以预先下载好模型，从本地加载:
 
-![img.png](../../../assets/posts/AI/CHATGLM-6B/local.png)
+![img.png](/assets/posts/AI/CHATGLM-6B/local.png)
  
 `web_demo.py` 代码改为目录文件
 
-![img.png](../../../assets/posts/AI/CHATGLM-6B/local_code.png)
+![img.png](/assets/posts/AI/CHATGLM-6B/local_code.png)
 
 
 ## 链接：

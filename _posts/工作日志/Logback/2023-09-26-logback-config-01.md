@@ -6,7 +6,7 @@ title: Logback 配置
 ---
 
 ## 1. Logback 结构
-![结构](../../../assets/posts/工作日志/Logback/logback-config-01/logback_struct.png)
+![结构](/assets/posts/工作日志/Logback/logback-config-01/logback_struct.png)
 
 
 ## 2. 配置模板

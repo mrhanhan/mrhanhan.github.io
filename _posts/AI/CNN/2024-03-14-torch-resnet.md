@@ -65,7 +65,7 @@ if __name__ == '__main__':
 
 运行之后会生成 `runs` 目录
 
-![](../../../assets/posts/AI/CNN/202403140001/img.png)
+![](/assets/posts/AI/CNN/202403140001/img.png)
 
 
 运行
@@ -77,7 +77,7 @@ tensorboard --logdir=runs
 然后打开: `http://127.0.0..1:6060`
 
 
-![](../../../assets/posts/AI/CNN/202403140001/img_1.png)
+![](/assets/posts/AI/CNN/202403140001/img_1.png)
 
 
 ## 参考:

@@ -14,16 +14,16 @@ title: 使用Java进行Burp Suite插件开发
 
 - 使用JetBrains Idea 创建Java项目
 
-![Java环境](../../../assets/posts/日常日志/Burpsuite/burpsuite-extender-01/burpsuite_java_env.png)
+![Java环境](/assets/posts/日常日志/Burpsuite/burpsuite-extender-01/burpsuite_java_env.png)
 
 - 打开Burp Suite 导入API
 
-![Burp Suite Extender](../../../assets/posts/日常日志/Burpsuite/burpsuite-extender-01/burpsuite_extender_api.png)
+![Burp Suite Extender](/assets/posts/日常日志/Burpsuite/burpsuite-extender-01/burpsuite_extender_api.png)
 
 注意，选择接口保存的目录一定是项目根目录，在操作完成后项目中会生成一个 burp Java包
 
 
-![Burp Suite Extender](../../../assets/posts/日常日志/Burpsuite/burpsuite-extender-01/burpsuite_extender_api_02.png)
+![Burp Suite Extender](/assets/posts/日常日志/Burpsuite/burpsuite-extender-01/burpsuite_extender_api_02.png)
 
 ## 2. 开发插件
 

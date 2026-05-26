@@ -9,7 +9,7 @@ tags: [数据库, Clickhouse]
 
 # 1. 现有方案
 
-![现有数据库表结构](../../../assets/posts/工作日志/Clickhouse/202303141029/current_datatable_struct.png)
+![现有数据库表结构](/assets/posts/工作日志/Clickhouse/202303141029/current_datatable_struct.png)
 
 ```sql
 
@@ -108,7 +108,7 @@ function process_data(dataModel, task, record) {
 
 基于上面的一些信息可以发现，如果采集的数据了非常大的情况下，并且数据重复率很高的时候，会造成非常多的修改命令。
 会产生大量`mutatuions`，会导致非常多的数据块进行`重建`, 导致`IO/CPU`压力飙升。
-![img.png](../../../assets/posts/工作日志/Clickhouse/202303141029/clickhouse_more_mutauions.png)
+![img.png](/assets/posts/工作日志/Clickhouse/202303141029/clickhouse_more_mutauions.png)
 导致线上系统查询缓慢。
 
 # 2. 基于表引擎方案
