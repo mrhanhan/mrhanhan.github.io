@@ -15,4 +15,4 @@ gem "wdm", "~> 0.2.0", :platforms => [:windows]
 
 gem "jekyll-toc", "~> 0.19.0"
 
-ruby '3.2.2'
+ruby "~> 3.2"
