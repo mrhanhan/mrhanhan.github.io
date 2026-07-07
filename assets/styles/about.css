@@ -1,11 +1,206 @@
-#main-wrapper {
-    
+/* Fixed full-viewport canvas background, revealed by making body transparent below */
+.about-fx-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
 }
-.about-layout {
-    background: transparent;
+
+/* The compiled theme sets `body { background: var(--main-bg); }`.
+   This rule renders after that stylesheet in document order, so equal
+   specificity cascade order lets it win without !important. Scoped in
+   effect to the about page because about.css is only linked from about.md. */
+body {
+  background: transparent;
 }
-.about-layout {
-    background: transparent;
+
+.about-cyber {
+  max-width: 100%;
+  color: #e6e6f0;
+  font-family: 'Courier New', monospace;
 }
-.about_user-info {
+
+.about-cyber .about-glass {
+  background: rgba(10, 12, 20, 0.55);
+  border: 1px solid rgba(138, 180, 255, 0.25);
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Hero */
+.about-hero {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.about-avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: 2px solid #2bd9ff;
+  box-shadow: 0 0 12px rgba(43, 217, 255, 0.6);
+  flex-shrink: 0;
+}
+
+.about-hero-text {
+  min-width: 0;
+}
+
+.about-fx-name {
+  position: relative;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.5rem;
+  letter-spacing: 1px;
+}
+
+.about-fx-name.is-glitching::before,
+.about-fx-name.is-glitching::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background: transparent;
+  overflow: hidden;
+}
+
+.about-fx-name.is-glitching::before {
+  color: #ff2b6d;
+  clip-path: inset(0 0 60% 0);
+  transform: translate(-3px, -1px);
+}
+
+.about-fx-name.is-glitching::after {
+  color: #2bd9ff;
+  clip-path: inset(60% 0 0 0);
+  transform: translate(3px, 1px);
+}
+
+.about-fx-slogan {
+  color: #39ff88;
+  font-size: 1rem;
+  text-shadow: 0 0 6px rgba(57, 255, 136, 0.6);
+  min-height: 1.5em;
+}
+
+.about-fx-slogan::after {
+  content: '_';
+  animation: about-caret-blink 1s step-end infinite;
+}
+
+@keyframes about-caret-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Skills */
+.about-section-title {
+  color: #8ab4ff;
+  text-shadow: 0 0 8px rgba(138, 180, 255, 0.5);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.about-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.about-skill-tag {
+  display: inline-block;
+  border: 2px solid #b026ff;
+  border-radius: 8px;
+  padding: 0.4rem 0.9rem;
+  color: #e6c8ff;
+  font-size: 0.9rem;
+  animation: about-neon-pulse 2s ease-in-out infinite;
+  transition: box-shadow 0.2s ease;
+}
+
+.about-skill-tag:hover {
+  box-shadow: 0 0 22px #b026ff, 0 0 34px rgba(176, 38, 255, 0.85);
+}
+
+@keyframes about-neon-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 6px #b026ff, 0 0 14px rgba(176, 38, 255, 0.5) inset;
+  }
+  50% {
+    box-shadow: 0 0 18px #b026ff, 0 0 30px rgba(176, 38, 255, 0.8),
+      0 0 20px rgba(176, 38, 255, 0.6) inset;
+  }
+}
+
+/* Contact bar */
+.about-contact-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.about-contact-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid #2bd9ff;
+  color: #2bd9ff;
+  font-size: 1.3rem;
+  box-shadow: 0 0 8px rgba(43, 217, 255, 0.5);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.about-contact-link:hover {
+  box-shadow: 0 0 20px #2bd9ff, 0 0 32px rgba(43, 217, 255, 0.8);
+  transform: translateY(-2px);
+  color: #2bd9ff;
+}
+
+.about-contact-link img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* Reduced motion: disable animation, keep static styling */
+@media (prefers-reduced-motion: reduce) {
+  .about-skill-tag {
+    animation: none;
+  }
+
+  .about-fx-name.is-glitching::before,
+  .about-fx-name.is-glitching::after {
+    display: none;
+  }
+
+  .about-fx-slogan::after {
+    animation: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .about-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-cyber .about-glass {
+    padding: 1.25rem;
+  }
+
+  .about-contact-bar {
+    gap: 0.75rem;
+  }
 }
