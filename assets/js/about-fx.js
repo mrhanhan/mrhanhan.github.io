@@ -8,7 +8,7 @@
   'use strict';
 
   var SLOGANS = [
-    '> whoami && echo "还在学习中的程序员"',
+    '> whoami && echo "Mrhan 计算机技术热爱者"',
     '> sudo make life --better',
     '> git commit -m "还没想好写什么"',
     '> while (true) { keep_coding(); }'
